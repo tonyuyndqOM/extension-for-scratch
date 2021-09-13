@@ -1,0 +1,105 @@
+class CustomBoolean {
+  getInfo() {
+    return {
+      id: "CustomBoolean",
+      blocks: [
+        {
+          opcode: 'CustomBool',
+          blockType: Scratch.BlockType.BOOLEAN,
+          text: '[BOOLEAN]',
+          arguments: {
+            BOOLEAN: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'true'
+            }
+          }
+        },
+        {
+          opcode: 'NotEqual',
+          blockType: Scratch.BlockType.BOOLEAN,
+          text: '[LEFT] != [RIGHT]',
+          arguments: {
+            LEFT: {
+              type: Scratch.ArgumentType.NUMBER,
+              defaultValue: '1'
+            },
+            RIGHT: {
+              type: Scratch.ArgumentType.NUMBER,
+              defaultValue: '2'
+            }
+          }
+        },
+        {
+          opcode: 'GreaterthanEqual',
+          blockType: Scratch.BlockType.BOOLEAN,
+          text: '[LEFT] >= [RIGHT]',
+          arguments: {
+            LEFT: {
+              type: Scratch.ArgumentType.NUMBER,
+              defaultValue: '2'
+            },
+            RIGHT: {
+              type: Scratch.ArgumentType.NUMBER,
+              defaultValue: '1'
+            }
+          }
+        },
+        {
+          opcode: 'SmallerthanEqual',
+          blockType: Scratch.BlockType.BOOLEAN,
+          text: '[LEFT] <= [RIGHT]',
+          arguments: {
+            LEFT: {
+              type: Scratch.ArgumentType.NUMBER,
+              defaultValue: '1'
+            },
+            RIGHT: {
+              type: Scratch.ArgumentType.NUMBER,
+              defaultValue: '2'
+            }
+          }
+        },
+        {
+          opcode: 'True',
+          blockType: Scratch.BlockType.BOOLEAN,
+          text: 'true'
+        },
+        {
+          opcode: 'False',
+          blockType: Scratch.BlockType.BOOLEAN,
+          text: 'false'
+        }
+      ]
+    };
+  }
+
+  CustomBool(BOOLEAN) {
+    return BOOLEAN;
+  }
+
+  NotEqual({ LEFT, RIGHT }) {
+    return LEFT != RIGHT;
+  }
+
+  bitwiseAnd({ LEFT, RIGHT }) {
+    return LEFT & RIGHT;
+  }
+
+  GreaterthanEqual({ LEFT, RIGHT }) {
+    return LEFT >= RIGHT;
+  }
+
+  SmallerthanEqual({ LEFT, RIGHT }) {
+    return LEFT <= RIGHT;
+  }
+
+  True() {
+    return true;
+  }
+
+  False() {
+    return false;
+  }
+}
+
+Scratch.extensions.register(new CustomBoolean());
